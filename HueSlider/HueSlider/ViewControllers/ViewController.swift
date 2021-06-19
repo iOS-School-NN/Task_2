@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }()
     
     private func configure() {
-        view.backgroundColor = .systemTeal
+        view.backgroundColor = .white
         view.addSubview(colorSlider)
         colorSlider.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
