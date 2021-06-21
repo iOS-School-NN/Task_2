@@ -17,7 +17,6 @@ final class ColorSlider: UIView {
     
     var hueValue: CGFloat = 0 {
         didSet {
-            layoutIfNeeded()
             setThumbPosition(by: hueValue)
             setThumbColor(by: hueValue)
         }
@@ -29,11 +28,14 @@ final class ColorSlider: UIView {
     }
     
     override func layoutSubviews() {
-        layer.cornerRadius = frame.height / 2
+        super.layoutSubviews()
         
-        thumbView.frame = CGRect(x: 0, y: bounds.height / 2 - thumbView.frame.height / 2,
-                                 width: bounds.height * 0.8, height: bounds.height * 0.8)
+        layer.cornerRadius = frame.height / 2
+
+        thumbView.frame.size = CGSize(width: bounds.height * 0.8, height: bounds.height * 0.8)
         thumbView.layer.cornerRadius = thumbView.frame.height / 2
+        setThumbPosition(by: hueValue)
+        setThumbColor(by: hueValue)
         
         gradientLayer.frame = CGRect(origin: .zero, size: bounds.size)
         gradientLayer.cornerRadius = frame.height / 2
@@ -56,7 +58,6 @@ final class ColorSlider: UIView {
         view.layer.borderWidth = 4
         return view
     }()
-    
     
     private func configure() {
         backgroundColor = .systemYellow
@@ -87,7 +88,7 @@ final class ColorSlider: UIView {
         thumbView.center = CGPoint(x: translation, y: thumbView.center.y)
         sender.setTranslation(.zero, in: self)
         
-        let hueValue = translation / frame.width
+        hueValue = translation / frame.width
         setThumbColor(by: hueValue)
         
         delegate?.colorSlider(self, didChangeValue: hueValue)
