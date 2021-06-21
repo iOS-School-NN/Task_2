@@ -34,6 +34,10 @@ final class ColorSlider: UIView {
 
         thumbView.frame.size = CGSize(width: bounds.height * 0.8, height: bounds.height * 0.8)
         thumbView.layer.cornerRadius = thumbView.frame.height / 2
+        thumbView.layer.shadowPath = CGPath(roundedRect: thumbView.bounds,
+                                            cornerWidth: thumbView.frame.height / 2,
+                                            cornerHeight: thumbView.frame.height / 2,
+                                            transform: nil)
         setThumbPosition(by: hueValue)
         setThumbColor(by: hueValue)
         
@@ -56,6 +60,11 @@ final class ColorSlider: UIView {
         view.backgroundColor = .systemRed
         view.layer.borderColor = UIColor.white.cgColor
         view.layer.borderWidth = 4
+        
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowRadius = 2
+        view.layer.shadowOffset = CGSize(width: 2, height: 0)
         return view
     }()
     
