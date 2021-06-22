@@ -9,6 +9,8 @@ import UIKit
 
 class SliderViewController: UIViewController {
 
+    @IBOutlet var mainView: UIView!
+    
     @IBOutlet weak var colorSlider: SliderButton!
     
     @IBOutlet weak var gradientView: UIView!
@@ -17,6 +19,7 @@ class SliderViewController: UIViewController {
         super.viewDidLoad()
         colorSlider.delegate = self
         createGradient()
+        mainView.sendSubviewToBack(gradientView)
     }
     
     override func viewDidLayoutSubviews() {

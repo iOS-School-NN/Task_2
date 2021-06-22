@@ -15,7 +15,7 @@ class SliderButton: UIView {
     var delegate: SliderDelegate?
     weak var inImageView: UIImageView?
     
-    var hueVal: CGFloat = 0.2
+    var hueVal: CGFloat = 0.3
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +32,8 @@ class SliderButton: UIView {
     
     func start() {
         guard let superview = superview else { return }
-        center = CGPoint(x: hueVal * superview.bounds.width, y: center.y)
+        let superviewGradient = superview.subviews[0]
+        center = CGPoint(x: (hueVal * superviewGradient.bounds.width) + superviewGradient.frame.minX, y: center.y)
     }
     
     private func buildSliderButton() {
@@ -63,16 +64,16 @@ class SliderButton: UIView {
 
     @objc private func moveSlider(sender: UIPanGestureRecognizer) {
         guard let superview = superview, let view = sender.view else { return }
-        let translation = sender.translation(in: superview).x + view.center.x
-        
-        guard translation <= superview.bounds.width, translation >= 0 else {
-            sender.setTranslation(CGPoint.zero, in: superview)
+        let superviewGradient = superview.subviews[0]
+        let translation = sender.translation(in: superviewGradient).x + view.center.x
+        guard translation <= superviewGradient.frame.maxX, translation >= superviewGradient.frame.minX else {
+            sender.setTranslation(CGPoint.zero, in: superviewGradient)
             return
         }
         
         view.center = CGPoint(x: translation, y: view.center.y)
-        sender.setTranslation(CGPoint.zero, in: superview)
-        hueVal = view.center.x / superview.bounds.width
+        sender.setTranslation(CGPoint.zero, in: superviewGradient)
+        hueVal = (view.center.x - superviewGradient.frame.minX) / superviewGradient.bounds.width
         
         guard let inImageView = inImageView else { return }
         inImageView.backgroundColor = UIColor(hue: hueVal, saturation: 1, brightness: 1, alpha: 1)
