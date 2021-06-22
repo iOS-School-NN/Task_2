@@ -8,31 +8,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Color Slider View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Task2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ColorSliderViewController" customModule="Task2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXt-CS-NJS">
-                                <rect key="frame" x="16" y="434.5" width="382" height="37"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0l-jU-c5f" customClass="ColorSlider" customModule="Task2" customModuleProvider="target">
+                                <rect key="frame" x="16" y="428" width="382" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="4vG-bb-cGe"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZFw-A1-iwA"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EXt-CS-NJS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4KH-z4-CYG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EXt-CS-NJS" secondAttribute="trailing" constant="16" id="AhE-Pz-3fc"/>
-                            <constraint firstItem="EXt-CS-NJS" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Bui-Vt-rJh"/>
-                            <constraint firstItem="EXt-CS-NJS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LZT-bs-iKA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C0l-jU-c5f" secondAttribute="trailing" constant="16" id="N0q-1Z-kwE"/>
+                            <constraint firstItem="C0l-jU-c5f" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TLs-Ib-n47"/>
+                            <constraint firstItem="C0l-jU-c5f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VRa-0F-bUA"/>
+                            <constraint firstItem="C0l-jU-c5f" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="x0g-en-jmP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="slider" destination="C0l-jU-c5f" id="h1i-kE-fMj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,9 +45,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

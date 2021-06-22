@@ -1,5 +1,5 @@
 //
-//  GradienView.swift
+//  ColorSlider.swift
 //  Task2
 //
 //  Created by Mary Matichina on 20.06.2021.
@@ -7,75 +7,109 @@
 
 import UIKit
 
-@IBDesignable class ColorSlider: UIView {
-    
+protocol ColorSliderDelegate {
+    func colorSlider(_ colorSlider: ColorSlider,  didChangeValue value: CGFloat)
+}
+
+@IBDesignable final class ColorSlider: UIView {
+     
     // MARK: - Properties
     
-    @IBInspectable private var startColor: UIColor =  UIColor.red {
+    private let maxHueValues = 360
+    private let arrayHues = (0...359).map { $0 }
+    private let thumb = UIView()
+    private let sizeThumb: CGFloat = 40
+    
+    var delegate: ColorSliderDelegate?
+    var thumbX: CGFloat?
+    /// Set value from 20 to 339
+    var hueValue: CGFloat = 0.5 {
         didSet {
-            updateColors()
+            if hueValue > 19 && hueValue < 340 {
+                let rowWidth = frame.width / CGFloat(maxHueValues)
+                let xCoordinate = CGFloat(hueValue) * rowWidth
+                thumbX = xCoordinate
+            }
         }
     }
     
-    @IBInspectable private var medium: UIColor = UIColor.purple {
-        didSet {
-            updateColors()
-        }
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
     }
     
-    @IBInspectable private var endColor: UIColor = UIColor.yellow {
-        didSet {
-            updateColors()
-        }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        configure()
     }
-   
-    @IBInspectable private var startLocation: Double = 0.0 {
-        didSet {
-            updateLocations()
-        }
-    }
-    
-    @IBInspectable private var mediumLocation: Double = 0.50 {
-        didSet {
-        updateLocations()
-        }
-    }
-    
-    @IBInspectable private var endLocation: Double = 1.0 {
-        didSet {
-            updateLocations()
-        }
-    }
-    
-    private var gradientLayer: CAGradientLayer {
-        layer as! CAGradientLayer
-    }
-    
-    override public class var layerClass: AnyClass {
-        CAGradientLayer.self
-    }
-    
-    // MARK: - Lifecycle
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        updatePoints()
-        updateLocations()
-        updateColors()
+        thumb.center = CGPoint(x: thumbX ?? bounds.midX, y: bounds.midY)
+        thumb.backgroundColor = getColorPoint(point: thumb.center)
+    }
+    
+    // MARK: - Draw
+    
+    override func draw(_ rect: CGRect) {
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+        let rowWidth = frame.width / CGFloat(maxHueValues)
+        
+        for hue in arrayHues {
+            let hueValue = CGFloat(hue) / CGFloat(maxHueValues)
+            let color = UIColor(hue: hueValue, saturation: 1, brightness: 1, alpha: 1.0)
+            context.setFillColor(color.cgColor)
+            let xCoordinate = CGFloat(hue) * rowWidth
+            context.fill(CGRect(x: xCoordinate, y: 0, width: rowWidth, height: frame.height))
+        }
     }
     
     // MARK: - Configure
     
-    private func updatePoints() {
-        gradientLayer.startPoint = .init(x: 1.0, y: 1.0)
-        gradientLayer.endPoint   = .init(x: 0.0, y: 1.0)
+    private func configure() {
+        thumbView()
+        addGestureRecognizer()
+        self.layer.cornerRadius = self.layer.frame.height / 2
+        self.clipsToBounds = true
     }
     
-    private func updateLocations() {
-        gradientLayer.locations = [startLocation as NSNumber, mediumLocation as NSNumber, endLocation as NSNumber]
+    private func thumbView() {
+        thumb.layer.cornerRadius = sizeThumb * 0.5
+        thumb.layer.bounds = CGRect(x: 0, y: 0, width: sizeThumb, height: sizeThumb)
+        thumb.layer.shadowColor = UIColor.black.cgColor
+        thumb.layer.shadowOffset = CGSize(width: 0.0, height: 6)
+        thumb.layer.shadowRadius = 2.0
+        thumb.layer.shadowOpacity = 0.25
+        thumb.layer.borderColor = UIColor.white.cgColor
+        thumb.layer.borderWidth = 1.5
+        
+        addSubview(thumb)
     }
     
-    private func updateColors() {
-        gradientLayer.colors = [startColor.cgColor, medium.cgColor, endColor.cgColor]
+    private func addGestureRecognizer() {
+        let touchGesture = UIPanGestureRecognizer(target: self, action: #selector(thumbMove))
+        thumb.addGestureRecognizer(touchGesture)
+    }
+    
+    private func getColorPoint(point: CGPoint) -> UIColor {
+        let hue = point.x / self.bounds.width
+        return UIColor(hue: hue, saturation: 1, brightness: 1, alpha: 1.0)
+    }
+    
+    @objc func thumbMove(sender: UIPanGestureRecognizer) {
+        guard let superview = superview, let view = sender.view else { return }
+        let translation = view.center.x + sender.translation(in: superview).x
+        guard translation >= bounds.minX + (sizeThumb * 0.5), translation <= bounds.maxX - (sizeThumb * 0.5) else { return }
+        view.center = CGPoint(x: translation, y: view.center.y)
+        sender.setTranslation(CGPoint.zero, in: superview)
+        
+        let point = sender.location(in: self)
+        let color = getColorPoint(point: point)
+        self.thumb.backgroundColor = color
+        let value = point.x / bounds.maxX
+        
+        delegate?.colorSlider(self, didChangeValue: value)
     }
 }
