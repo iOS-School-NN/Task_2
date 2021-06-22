@@ -20,33 +20,37 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ElP-XJ-IRI">
-                    <rect key="frame" x="50" y="418" width="314" height="60"/>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-JM-3Az">
+                    <rect key="frame" x="30" y="398" width="354" height="100"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cs2-a4-Q5h" customClass="SliderButton" customModule="Task2" customModuleProvider="target">
-                            <rect key="frame" x="130" y="3" width="55" height="55"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ElP-XJ-IRI">
+                            <rect key="frame" x="20" y="20" width="314" height="60"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cs2-a4-Q5h" customClass="SliderButton" customModule="Task2" customModuleProvider="target">
+                                    <rect key="frame" x="130" y="3" width="55" height="55"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="55" id="V6m-qZ-N5B"/>
+                                        <constraint firstAttribute="width" secondItem="cs2-a4-Q5h" secondAttribute="height" multiplier="1:1" id="eNI-Oc-bom"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
                             <constraints>
-                                <constraint firstAttribute="width" constant="55" id="V6m-qZ-N5B"/>
-                                <constraint firstAttribute="width" secondItem="cs2-a4-Q5h" secondAttribute="height" multiplier="1:1" id="eNI-Oc-bom"/>
+                                <constraint firstAttribute="height" constant="60" id="6ux-UB-n4a"/>
+                                <constraint firstItem="cs2-a4-Q5h" firstAttribute="centerY" secondItem="ElP-XJ-IRI" secondAttribute="centerY" constant="0.5" id="ADF-7t-2L1"/>
+                                <constraint firstItem="cs2-a4-Q5h" firstAttribute="centerX" secondItem="ElP-XJ-IRI" secondAttribute="centerX" constant="0.5" id="xuE-Mz-0uf"/>
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="6ux-UB-n4a"/>
-                        <constraint firstItem="cs2-a4-Q5h" firstAttribute="centerY" secondItem="ElP-XJ-IRI" secondAttribute="centerY" constant="0.5" id="ADF-7t-2L1"/>
-                        <constraint firstItem="cs2-a4-Q5h" firstAttribute="centerX" secondItem="ElP-XJ-IRI" secondAttribute="centerX" constant="0.5" id="xuE-Mz-0uf"/>
+                        <constraint firstItem="ElP-XJ-IRI" firstAttribute="centerY" secondItem="yzh-JM-3Az" secondAttribute="centerY" id="D82-O1-uaJ"/>
+                        <constraint firstItem="ElP-XJ-IRI" firstAttribute="centerX" secondItem="yzh-JM-3Az" secondAttribute="centerX" id="S2x-WQ-lsx"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <constraints>
-                <constraint firstItem="ElP-XJ-IRI" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="DTh-Ao-dyN"/>
-                <constraint firstItem="ElP-XJ-IRI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="JQw-rN-Lrh"/>
-                <constraint firstItem="ElP-XJ-IRI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PGU-VZ-pm2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ElP-XJ-IRI" secondAttribute="trailing" constant="50" id="bsw-W1-OVw"/>
-            </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="76.339285714285708"/>
         </view>
     </objects>

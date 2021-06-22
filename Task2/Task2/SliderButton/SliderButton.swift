@@ -15,7 +15,7 @@ class SliderButton: UIView {
     var delegate: SliderDelegate?
     weak var inImageView: UIImageView?
     
-    var hueVal: CGFloat = 0.8
+    var hueVal: CGFloat = 0.2
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +27,6 @@ class SliderButton: UIView {
         super.layoutSubviews()
         layer.cornerRadius = bounds.height / 2
         inImageView?.layer.cornerRadius = (inImageView?.bounds.height)! / 2
-        
         start()
     }
     
@@ -75,7 +74,9 @@ class SliderButton: UIView {
         sender.setTranslation(CGPoint.zero, in: superview)
         hueVal = view.center.x / superview.bounds.width
         
+        guard let inImageView = inImageView else { return }
+        inImageView.backgroundColor = UIColor(hue: hueVal, saturation: 1, brightness: 1, alpha: 1)
+        
         delegate?.colorSlider(slider: self, hueVal: hueVal)
     }
-    
 }

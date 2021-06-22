@@ -41,9 +41,6 @@ class SliderViewController: UIViewController {
 
 extension SliderViewController: SliderDelegate {
     func colorSlider(slider: SliderButton, hueVal: CGFloat) {
-        guard let inImageView = colorSlider.inImageView else { return }
-        inImageView.backgroundColor = UIColor(hue: hueVal, saturation: 1, brightness: 1, alpha: 1)
+        print(hueVal)
     }
-    
-    
 }
