@@ -40,4 +40,3 @@ extension ViewController: ColorSliderDelegate {
         print(value)
     }
 }
-

@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol ColorSliderDelegate: NSObject {
-    func colorSlider(_ colorSlider: ColorSlider,  didChangeValue value: CGFloat)
+protocol ColorSliderDelegate: AnyObject {
+    func colorSlider(_ colorSlider: ColorSlider, didChangeValue value: CGFloat)
 }
 
 final class ColorSlider: UIView {
