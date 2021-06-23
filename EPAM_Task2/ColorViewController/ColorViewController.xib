@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ColorViewController" customModule="EPAM_Task2" customModuleProvider="target">
+            <connections>
+                <outlet property="colorView" destination="3Ah-aO-Iu6" id="SpQ-SB-IXA"/>
+                <outlet property="hueSlider" destination="K4e-Y8-ghF" id="G6q-vL-YDC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ah-aO-Iu6">
+                    <rect key="frame" x="75" y="114" width="278" height="277.66666666666669"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="3Ah-aO-Iu6" secondAttribute="height" multiplier="1:1" id="nMe-pH-o4U"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4e-Y8-ghF" customClass="HueSlider" customModule="EPAM_Task2" customModuleProvider="target">
+                    <rect key="frame" x="64.333333333333343" y="441.66666666666669" width="299.33333333333326" height="30"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="K4e-Y8-ghF" secondAttribute="height" multiplier="1:0.1" id="RFy-sd-U9u"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="pickerBorderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="pickerBorderColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="3Ah-aO-Iu6" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ArX-b5-0lI"/>
+                <constraint firstItem="3Ah-aO-Iu6" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="IIi-fW-Rfu"/>
+                <constraint firstItem="K4e-Y8-ghF" firstAttribute="top" secondItem="3Ah-aO-Iu6" secondAttribute="bottom" constant="50" id="NLT-Ib-cZN"/>
+                <constraint firstItem="K4e-Y8-ghF" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="Oux-IQ-x0j"/>
+                <constraint firstItem="3Ah-aO-Iu6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="VjW-PQ-D4I"/>
+                <constraint firstItem="K4e-Y8-ghF" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="uNy-3u-3d6"/>
+            </constraints>
+            <point key="canvasLocation" x="23.831775700934578" y="108.20734341252701"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
