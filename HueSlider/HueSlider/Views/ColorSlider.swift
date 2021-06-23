@@ -49,8 +49,8 @@ final class ColorSlider: UIView {
         let gradient = CAGradientLayer()
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradient.colors = stride(from: 0, to: 360, by: 30).map {
-            UIColor(hue: $0 / 360, saturation: 1.0, brightness: 1.0, alpha: 1.0).cgColor
+        gradient.colors = Array(0...360).map {
+            UIColor(hue: CGFloat($0) / 360, saturation: 1.0, brightness: 1.0, alpha: 1.0).cgColor
         }
         return gradient
     }()
@@ -88,7 +88,7 @@ final class ColorSlider: UIView {
     }
     
     private func setThumbColor(by hueValue: CGFloat) {
-        thumbView.backgroundColor = UIColor(hue: hueValue - 0.05, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+        thumbView.backgroundColor = UIColor(hue: hueValue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
     }
     
     @objc private func didMovedThumb(sender: UIPanGestureRecognizer) {
