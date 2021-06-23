@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ColorSliderDelegate {
+protocol ColorSliderDelegate: AnyObject {
     func colorSlider(_ colorSlider: ColorSlider,  didChangeValue value: CGFloat)
 }
 
@@ -19,9 +19,10 @@ protocol ColorSliderDelegate {
     private let arrayHues = (0...359).map { $0 }
     private let thumb = UIView()
     private let sizeThumb: CGFloat = 40
+    private var thumbX: CGFloat?
     
-    var delegate: ColorSliderDelegate?
-    var thumbX: CGFloat?
+    weak var delegate: ColorSliderDelegate?
+    
     /// Set value from 20 to 339
     var hueValue: CGFloat = 0.5 {
         didSet {
