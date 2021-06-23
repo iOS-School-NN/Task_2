@@ -35,3 +35,17 @@ timeline.xctimeline
 playground.xcworkspace
 
 .build/
+
+# CocoaPods
+Pods/
+
+*.orig
+UserInterfaceState.xcuserstate/*
+*~
+.DS_Store
+*.xcworkspace/*
+#*.xcscheme
+xcschememanagement.plist
+*.xcuserdatad
+xcshareddata/*
+xcuserdata/*
