@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FBA103A326814237005055C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA103A126814237005055C6 /* MainViewController.swift */; };
-		FBA103A426814237005055C6 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBA103A226814237005055C6 /* MainViewController.xib */; };
+		FB6BA5B32683C86600CA5538 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BA5B22683C86600CA5538 /* GradientView.swift */; };
+		FB6BA5B52683C91D00CA5538 /* ThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BA5B42683C91D00CA5538 /* ThumbView.swift */; };
+		FB6BA5B72683C92E00CA5538 /* ChosenColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BA5B62683C92E00CA5538 /* ChosenColorView.swift */; };
+		FBA103A326814237005055C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA103A126814237005055C6 /* ViewController.swift */; };
+		FBA39DEB2683CAFD00D99CA0 /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA39DEA2683CAFD00D99CA0 /* ColorSliderView.swift */; };
 		FBF342A326813B87000A74B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF342A226813B87000A74B0 /* AppDelegate.swift */; };
 		FBF342A526813B87000A74B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF342A426813B87000A74B0 /* SceneDelegate.swift */; };
 		FBF342AC26813B88000A74B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBF342AB26813B88000A74B0 /* Assets.xcassets */; };
@@ -16,8 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FBA103A126814237005055C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		FBA103A226814237005055C6 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		FB6BA5B22683C86600CA5538 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		FB6BA5B42683C91D00CA5538 /* ThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbView.swift; sourceTree = "<group>"; };
+		FB6BA5B62683C92E00CA5538 /* ChosenColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenColorView.swift; sourceTree = "<group>"; };
+		FBA103A126814237005055C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FBA39DEA2683CAFD00D99CA0 /* ColorSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
 		FBF3429F26813B87000A74B0 /* Task_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF342A226813B87000A74B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF342A426813B87000A74B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,13 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FBA103A026814203005055C6 /* MainViewController */ = {
+		FBA103A026814203005055C6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FBA103A126814237005055C6 /* MainViewController.swift */,
-				FBA103A226814237005055C6 /* MainViewController.xib */,
+				FBA103A126814237005055C6 /* ViewController.swift */,
 			);
-			path = MainViewController;
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FBC1A9D6268350310052C394 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FBA39DEA2683CAFD00D99CA0 /* ColorSliderView.swift */,
+				FB6BA5B22683C86600CA5538 /* GradientView.swift */,
+				FB6BA5B42683C91D00CA5538 /* ThumbView.swift */,
+				FB6BA5B62683C92E00CA5538 /* ChosenColorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FBC1A9D72683505E0052C394 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				FBF342A226813B87000A74B0 /* AppDelegate.swift */,
+				FBF342A426813B87000A74B0 /* SceneDelegate.swift */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 		FBF3429626813B87000A74B0 = {
@@ -65,9 +90,9 @@
 		FBF342A126813B87000A74B0 /* Task_2 */ = {
 			isa = PBXGroup;
 			children = (
-				FBF342A226813B87000A74B0 /* AppDelegate.swift */,
-				FBF342A426813B87000A74B0 /* SceneDelegate.swift */,
-				FBA103A026814203005055C6 /* MainViewController */,
+				FBC1A9D72683505E0052C394 /* Supporting files */,
+				FBA103A026814203005055C6 /* ViewController */,
+				FBC1A9D6268350310052C394 /* Views */,
 				FBF342AB26813B88000A74B0 /* Assets.xcassets */,
 				FBF342AD26813B88000A74B0 /* LaunchScreen.storyboard */,
 				FBF342B026813B88000A74B0 /* Info.plist */,
@@ -133,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBF342AF26813B88000A74B0 /* LaunchScreen.storyboard in Resources */,
-				FBA103A426814237005055C6 /* MainViewController.xib in Resources */,
 				FBF342AC26813B88000A74B0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,8 +169,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBA103A326814237005055C6 /* MainViewController.swift in Sources */,
+				FBA39DEB2683CAFD00D99CA0 /* ColorSliderView.swift in Sources */,
+				FBA103A326814237005055C6 /* ViewController.swift in Sources */,
+				FB6BA5B52683C91D00CA5538 /* ThumbView.swift in Sources */,
 				FBF342A326813B87000A74B0 /* AppDelegate.swift in Sources */,
+				FB6BA5B32683C86600CA5538 /* GradientView.swift in Sources */,
+				FB6BA5B72683C92E00CA5538 /* ChosenColorView.swift in Sources */,
 				FBF342A526813B87000A74B0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
