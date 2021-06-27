@@ -15,7 +15,7 @@
 		225FF135267B150500199387 /* Task2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FF134267B150500199387 /* Task2UITests.swift */; };
 		225FF150267B15A500199387 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FF14E267B15A500199387 /* SliderViewController.swift */; };
 		225FF151267B15A500199387 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225FF14F267B15A500199387 /* SliderViewController.xib */; };
-		227CFDC9267B19CF0030D698 /* SliderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CFDC8267B19CF0030D698 /* SliderButton.swift */; };
+		227CFDC9267B19CF0030D698 /* ThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CFDC8267B19CF0030D698 /* ThumbView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		225FF136267B150500199387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225FF14E267B15A500199387 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		225FF14F267B15A500199387 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
-		227CFDC8267B19CF0030D698 /* SliderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderButton.swift; sourceTree = "<group>"; };
+		227CFDC8267B19CF0030D698 /* ThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		225FF111267B150000199387 /* Task2 */ = {
 			isa = PBXGroup;
 			children = (
-				227CFDC7267B18500030D698 /* SliderButton */,
+				227CFDC7267B18500030D698 /* ThumbView */,
 				225FF155267B15AB00199387 /* SliderVC */,
 				225FF112267B150000199387 /* AppDelegate.swift */,
 				225FF114267B150000199387 /* SceneDelegate.swift */,
@@ -139,12 +139,12 @@
 			path = SliderVC;
 			sourceTree = "<group>";
 		};
-		227CFDC7267B18500030D698 /* SliderButton */ = {
+		227CFDC7267B18500030D698 /* ThumbView */ = {
 			isa = PBXGroup;
 			children = (
-				227CFDC8267B19CF0030D698 /* SliderButton.swift */,
+				227CFDC8267B19CF0030D698 /* ThumbView.swift */,
 			);
-			path = SliderButton;
+			path = ThumbView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227CFDC9267B19CF0030D698 /* SliderButton.swift in Sources */,
+				227CFDC9267B19CF0030D698 /* ThumbView.swift in Sources */,
 				225FF150267B15A500199387 /* SliderViewController.swift in Sources */,
 				225FF113267B150000199387 /* AppDelegate.swift in Sources */,
 				225FF115267B150000199387 /* SceneDelegate.swift in Sources */,

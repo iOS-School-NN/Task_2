@@ -8,22 +8,15 @@
 import UIKit
 
 class SliderViewController: UIViewController {
+    
+    @IBOutlet weak var colorSlider: ThumbView!
 
-    @IBOutlet var mainView: UIView!
-    
-    @IBOutlet weak var colorSlider: SliderButton!
-    
     @IBOutlet weak var gradientView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         colorSlider.delegate = self
         createGradient()
-        mainView.sendSubviewToBack(gradientView)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
     }
     
     private func createGradient() {
@@ -37,13 +30,13 @@ class SliderViewController: UIViewController {
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         gradientLayer.cornerRadius = gradientLayer.bounds.width * 0.05
-        gradientView.layer.addSublayer(gradientLayer)
         gradientView.layer.insertSublayer(gradientLayer, at: 0)
+        view.sendSubviewToBack(gradientView)
     }
 }
 
 extension SliderViewController: SliderDelegate {
-    func colorSlider(slider: SliderButton, hueVal: CGFloat) {
+    func colorSlider(slider: ThumbView, hueVal: CGFloat) {
         print(hueVal)
     }
 }
