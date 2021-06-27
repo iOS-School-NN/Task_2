@@ -11,7 +11,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SliderViewController" customModule="Task2" customModuleProvider="target">
             <connections>
                 <outlet property="colorSlider" destination="cs2-a4-Q5h" id="L2A-lZ-RFM"/>
-                <outlet property="gradientView" destination="ElP-XJ-IRI" id="jcy-MX-YDE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,22 +27,12 @@
                         <constraint firstAttribute="width" secondItem="cs2-a4-Q5h" secondAttribute="height" multiplier="1:1" id="eNI-Oc-bom"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ElP-XJ-IRI">
-                    <rect key="frame" x="50" y="418" width="314" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="6ux-UB-n4a"/>
-                    </constraints>
-                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="ElP-XJ-IRI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="JQw-rN-Lrh"/>
-                <constraint firstItem="cs2-a4-Q5h" firstAttribute="centerY" secondItem="ElP-XJ-IRI" secondAttribute="centerY" id="Odw-gh-i1K"/>
-                <constraint firstItem="ElP-XJ-IRI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PGU-VZ-pm2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ElP-XJ-IRI" secondAttribute="trailing" constant="50" id="bsw-W1-OVw"/>
-                <constraint firstItem="cs2-a4-Q5h" firstAttribute="centerX" secondItem="ElP-XJ-IRI" secondAttribute="centerX" id="ewI-bx-Naa"/>
-                <constraint firstItem="ElP-XJ-IRI" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="oBZ-2X-WVS"/>
+                <constraint firstItem="cs2-a4-Q5h" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="9S9-HH-Kin"/>
+                <constraint firstItem="cs2-a4-Q5h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uuq-n0-Kvg"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="76.339285714285708"/>
         </view>
