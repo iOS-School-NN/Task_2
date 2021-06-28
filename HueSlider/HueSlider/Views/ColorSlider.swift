@@ -17,8 +17,8 @@ final class ColorSlider: UIView {
     
     var hueValue: CGFloat = 0 {
         didSet {
-            setThumbPosition(by: hueValue)
-            setThumbColor(by: hueValue)
+            setThumbPosition()
+            setThumbColor()
         }
     }
     
@@ -38,11 +38,19 @@ final class ColorSlider: UIView {
                                             cornerWidth: thumbView.frame.height / 2,
                                             cornerHeight: thumbView.frame.height / 2,
                                             transform: nil)
-        setThumbPosition(by: hueValue)
-        setThumbColor(by: hueValue)
+        setThumbPosition()
+        setThumbColor()
         
         gradientLayer.frame = CGRect(origin: .zero, size: bounds.size)
         gradientLayer.cornerRadius = frame.height / 2
+    }
+    
+    private var validHueValue: CGFloat {
+        switch hueValue {
+        case ..<0: return 0
+        case 1...: return 1
+        default: return hueValue
+        }
     }
     
     private let gradientLayer: CAGradientLayer = {
@@ -57,7 +65,6 @@ final class ColorSlider: UIView {
 
     private lazy var thumbView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = .systemRed
         view.layer.borderColor = UIColor.white.cgColor
         view.layer.borderWidth = 4
         
@@ -69,36 +76,30 @@ final class ColorSlider: UIView {
     }()
     
     private func configure() {
-        backgroundColor = .systemYellow
         layer.addSublayer(gradientLayer)
         addSubview(thumbView)
         thumbView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(didMovedThumb)))
     }
     
-    private func setThumbPosition(by hueValue: CGFloat) {
+    private func setThumbPosition() {
         let posX: CGFloat
-        if hueValue <= 0 {
-            posX = thumbView.frame.width / 2
-        } else if hueValue * bounds.width >= bounds.width {
-            posX = bounds.width - thumbView.frame.width / 2
-        } else {
-            posX = hueValue * bounds.width
+        switch validHueValue {
+        case 0.0: posX = thumbView.frame.width / 2
+        case 1.0: posX = bounds.width - thumbView.frame.width / 2
+        default: posX = validHueValue * bounds.width
         }
         thumbView.center = CGPoint(x: posX, y: bounds.height / 2)
     }
     
-    private func setThumbColor(by hueValue: CGFloat) {
-        thumbView.backgroundColor = UIColor(hue: hueValue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+    private func setThumbColor() {
+        thumbView.backgroundColor = UIColor(hue: validHueValue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
     }
     
     @objc private func didMovedThumb(sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: self).x + thumbView.center.x
         guard bounds.minX + thumbView.frame.width / 2...bounds.maxX - thumbView.frame.width / 2 ~= translation else { return }
-        thumbView.center = CGPoint(x: translation, y: thumbView.center.y)
-        sender.setTranslation(.zero, in: self)
-        
         hueValue = translation / frame.width
-        setThumbColor(by: hueValue)
+        sender.setTranslation(.zero, in: self)
         
         delegate?.colorSlider(self, didChangeValue: hueValue)
     }
