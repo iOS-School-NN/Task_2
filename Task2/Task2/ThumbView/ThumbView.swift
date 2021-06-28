@@ -7,14 +7,15 @@
 
 import UIKit
 
-protocol SliderDelegate {
+protocol SliderDelegate: AnyObject {
     func colorSlider(slider: ThumbView, hueVal: CGFloat)
 }
 
 class ThumbView: UIView {
-    var delegate: SliderDelegate?
     
-    var hueVal: CGFloat = -1.2
+    weak var delegate: SliderDelegate?
+    
+    var hueVal: CGFloat = 0.2
         
     let gradientView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 60))
     
