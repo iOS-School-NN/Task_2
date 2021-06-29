@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var myColorPicker: ColorPicker!
+    @IBOutlet private weak var myColorPicker: ColorPicker!
     var progmmaticallyAddedColorPicker = ColorPicker(frame: CGRect(x: 60, y: 120, width: 320, height: 40))
 
     override func viewDidLoad() {
