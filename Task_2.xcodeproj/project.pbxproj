@@ -13,6 +13,7 @@
 		841310F7267FDB6B00D16D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841310F5267FDB6B00D16D0D /* Main.storyboard */; };
 		841310F9267FDB6B00D16D0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841310F8267FDB6B00D16D0D /* Assets.xcassets */; };
 		841310FC267FDB6B00D16D0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841310FA267FDB6B00D16D0D /* LaunchScreen.storyboard */; };
+		842ED0CD268B188200348BB2 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED0CC268B188200348BB2 /* ColorSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		841310F8267FDB6B00D16D0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		841310FB267FDB6B00D16D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841310FD267FDB6B00D16D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		842ED0CC268B188200348BB2 /* ColorSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				841310EF267FDB6B00D16D0D /* AppDelegate.swift */,
 				841310F1267FDB6B00D16D0D /* SceneDelegate.swift */,
 				841310F3267FDB6B00D16D0D /* ViewController.swift */,
+				842ED0CC268B188200348BB2 /* ColorSlider.swift */,
 				841310F5267FDB6B00D16D0D /* Main.storyboard */,
 				841310F8267FDB6B00D16D0D /* Assets.xcassets */,
 				841310FA267FDB6B00D16D0D /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				841310F4267FDB6B00D16D0D /* ViewController.swift in Sources */,
 				841310F0267FDB6B00D16D0D /* AppDelegate.swift in Sources */,
+				842ED0CD268B188200348BB2 /* ColorSlider.swift in Sources */,
 				841310F2267FDB6B00D16D0D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
