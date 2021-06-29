@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ColorPickerDelegate {
+protocol ColorPickerDelegate: UIViewController {
     func colorPicker(colorPicker: ColorPicker, hueValue: CGFloat)
 }
 
@@ -21,7 +21,7 @@ class ColorPicker: UIView {
     let hueColors = stride(from: 0, to: 1, by: 0.03).map {
         UIColor(hue: $0, saturation: 1, brightness: 1, alpha: 1).cgColor
     }
-    var delegate: ColorPickerDelegate?
+    weak var delegate: ColorPickerDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
