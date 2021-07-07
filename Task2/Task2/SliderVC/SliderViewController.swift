@@ -9,7 +9,7 @@ import UIKit
 
 class SliderViewController: UIViewController {
     
-    @IBOutlet weak var colorSlider: ThumbView!
+    @IBOutlet weak var colorSlider: SliderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class SliderViewController: UIViewController {
 }
 
 extension SliderViewController: SliderDelegate {
-    func colorSlider(slider: ThumbView, hueVal: CGFloat) {
-        print(hueVal)
+    func colorSlider(slider: SliderView, didChange hueValue: CGFloat) {
+        print(hueValue)
     }
 }

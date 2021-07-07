@@ -13,7 +13,7 @@
 		225FF11F267B150500199387 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225FF11D267B150500199387 /* LaunchScreen.storyboard */; };
 		225FF150267B15A500199387 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FF14E267B15A500199387 /* SliderViewController.swift */; };
 		225FF151267B15A500199387 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225FF14F267B15A500199387 /* SliderViewController.xib */; };
-		227CFDC9267B19CF0030D698 /* ThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CFDC8267B19CF0030D698 /* ThumbView.swift */; };
+		227CFDC9267B19CF0030D698 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CFDC8267B19CF0030D698 /* SliderView.swift */; };
 		298BB7ACD01E8848A69C8CE2 /* Pods_Task2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE1DE3CC6B9224CB714926B /* Pods_Task2.framework */; };
 		7AC8747D99057AF530F5C5D7 /* Pods_Task2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EBF3900D2393DE907F5D994 /* Pods_Task2Tests.framework */; };
 		E13B4C010117FAD4807063B0 /* Pods_Task2_Task2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49FEEBDDDADE83B788B66F6 /* Pods_Task2_Task2UITests.framework */; };
@@ -48,7 +48,7 @@
 		225FF130267B150500199387 /* Task2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Task2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		225FF14E267B15A500199387 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		225FF14F267B15A500199387 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
-		227CFDC8267B19CF0030D698 /* ThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbView.swift; sourceTree = "<group>"; };
+		227CFDC8267B19CF0030D698 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		342E5576F705B30B2D1C006D /* Pods-Task2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task2Tests.debug.xcconfig"; path = "Target Support Files/Pods-Task2Tests/Pods-Task2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3A8FB93EE6CC3B2B09B9D318 /* Pods-Task2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task2Tests.release.xcconfig"; path = "Target Support Files/Pods-Task2Tests/Pods-Task2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8EBF3900D2393DE907F5D994 /* Pods_Task2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +110,7 @@
 		225FF111267B150000199387 /* Task2 */ = {
 			isa = PBXGroup;
 			children = (
-				227CFDC7267B18500030D698 /* ThumbView */,
+				227CFDC7267B18500030D698 /* SliderView */,
 				225FF155267B15AB00199387 /* SliderVC */,
 				225FF112267B150000199387 /* AppDelegate.swift */,
 				225FF114267B150000199387 /* SceneDelegate.swift */,
@@ -130,12 +130,12 @@
 			path = SliderVC;
 			sourceTree = "<group>";
 		};
-		227CFDC7267B18500030D698 /* ThumbView */ = {
+		227CFDC7267B18500030D698 /* SliderView */ = {
 			isa = PBXGroup;
 			children = (
-				227CFDC8267B19CF0030D698 /* ThumbView.swift */,
+				227CFDC8267B19CF0030D698 /* SliderView.swift */,
 			);
-			path = ThumbView;
+			path = SliderView;
 			sourceTree = "<group>";
 		};
 		41286A0D952E291B8E4F24AF /* Frameworks */ = {
@@ -382,7 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227CFDC9267B19CF0030D698 /* ThumbView.swift in Sources */,
+				227CFDC9267B19CF0030D698 /* SliderView.swift in Sources */,
 				225FF150267B15A500199387 /* SliderViewController.swift in Sources */,
 				225FF113267B150000199387 /* AppDelegate.swift in Sources */,
 				225FF115267B150000199387 /* SceneDelegate.swift in Sources */,

@@ -8,14 +8,14 @@
 import UIKit
 
 protocol SliderDelegate: AnyObject {
-    func colorSlider(slider: ThumbView, hueVal: CGFloat)
+    func colorSlider(slider: SliderView, didChange hueValue: CGFloat)
 }
 
-class ThumbView: UIView {
+class SliderView: UIView {
     
     weak var delegate: SliderDelegate?
     
-    var hueVal: CGFloat = 0.2
+    var hueValue: CGFloat = 0.2
         
     let gradientView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 60))
     
@@ -32,14 +32,14 @@ class ThumbView: UIView {
     }
     
     func setStartPosition() {
-        if hueVal < 0 { hueVal = 0 }
-        if hueVal > 1 { hueVal = 1 }
+        if hueValue < 0 { hueValue = 0 }
+        if hueValue > 1 { hueValue = 1 }
         
-        center = CGPoint(x: (hueVal * gradientView.bounds.width) + gradientView.frame.minX, y: center.y)
+        center = CGPoint(x: (hueValue * gradientView.bounds.width) + gradientView.frame.minX, y: center.y)
     }
     
     private func configureThumbView() {
-        backgroundColor = UIColor(hue: hueVal, saturation: 1, brightness: 1, alpha: 1)
+        backgroundColor = UIColor(hue: hueValue, saturation: 1, brightness: 1, alpha: 1)
         
         layer.cornerRadius = bounds.height / 2
         layer.borderWidth = 7
@@ -65,11 +65,11 @@ class ThumbView: UIView {
         
         view.center = CGPoint(x: translation, y: view.center.y)
         sender.setTranslation(CGPoint.zero, in: gradientView)
-        hueVal = (view.center.x - gradientView.frame.minX) / gradientView.bounds.width
+        hueValue = (view.center.x - gradientView.frame.minX) / gradientView.bounds.width
         
-        backgroundColor = UIColor(hue: hueVal, saturation: 1, brightness: 1, alpha: 1)
+        backgroundColor = UIColor(hue: hueValue, saturation: 1, brightness: 1, alpha: 1)
         
-        delegate?.colorSlider(slider: self, hueVal: hueVal)
+        delegate?.colorSlider(slider: self, didChange: hueValue)
     }
     
     private func createGradient() {
@@ -79,8 +79,8 @@ class ThumbView: UIView {
         let gradientLayer = CAGradientLayer()
         var colors = [CGColor]()
         gradientLayer.frame = gradientView.bounds
-        for i in 0...360 {
-            colors.append(UIColor(hue: CGFloat(Double(i) * 1 / 360), saturation: 1, brightness: 1, alpha: 1).cgColor)
+        for oneColorValue in 0...360 {
+            colors.append(UIColor(hue: CGFloat(Double(oneColorValue) * 1 / 360), saturation: 1, brightness: 1, alpha: 1).cgColor)
         }
         gradientLayer.colors = colors
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
